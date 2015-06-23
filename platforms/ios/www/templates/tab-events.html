@@ -1,0 +1,54 @@
+<ion-view view-title="Scopri" ng-controller="EventsCtrl" >
+	<ion-nav-buttons side="primary">
+      <a class="button avatar" href="#/account"><!-- #nothingtoseehere --></a>
+    </ion-nav-buttons>
+
+	<ion-header-bar class="bar bar-subheader sub-bar">
+		<ul>
+			<li ng-repeat="tab in tabs" ng-class="{active:isActiveTab(tab.url)}" ng-click="onClickTab(tab)">{{tab.title}} 
+			<span ng-show="tab.hasNotification">8</span>
+			</li>
+		</ul>
+	</ion-header-bar>
+
+	<ion-content class="has-subheader" ng-controller="EventsCtrl" ng-init="update()">
+<!--     <div class="bar bar-header bar-light"> -->
+		<!-- </div> -->
+		<div id="mainView">
+			<div ng-include="currentTab"></div>
+		</div>
+		
+		<script type="text/ng-template" id="events-progra.html">
+			<ion-list>
+				<ion-item class="item-divider">
+					June 2015
+				</ion-item>
+  				<ion-item class="item-icon-left" href="#/tab/events/{{event.id}}" ng-repeat="event in refresh()">
+  				<i class="icon checkbox"></i>
+  					<div style="float: left; max-width:180px;">
+	    				<h2>{{event.name}}</h2>
+	    				<div class="details">
+	    					<span class="duration">All day</span>
+	    					<span class="location">{{event.location}}</span>
+	    				</div>
+    				</div>
+    				<span class="item-note">
+      					<span class="date">{{event.data|date:'dd'}}</span>
+      					<span class="day">mon</span>
+    				</span>
+  				</ion-item>
+
+			</ion-list>
+		</script>
+
+		<script type="text/ng-template" id="events-friend.html">
+		<ion-list>
+
+  			<ion-item ng-repeat="event in refresh()">
+    			{{"friend"+event.name}}
+  			</ion-item>
+
+		</ion-list>
+		</script>
+	</ion-content>
+</ion-view>

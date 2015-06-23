@@ -1,0 +1,29 @@
+<ion-view>
+	<ion-content ng-controller="LoginCtrl" has-header="false" ng-init="check()">
+
+		<center><div id="login-logo"><!-- #nothingtoseehere --></div></center>
+
+		<div class="login-screen" ng-hide="status() || loggedin">
+				<label class="login-field">
+					<span>Email</span>
+					<input type="email" ng-model="mail">
+				</label>
+				<div class="separator"><!-- #nothingtoseehere --></div>
+				<label class="login-field">
+					<span>Password</span>
+					<input type="password" ng-model="password">
+				</label>
+				<div class="separator"><!-- #nothingtoseehere --></div>
+				<label class="login-field">
+					<span>Laguage</span>
+					<input type="text">
+				</label>
+				<div class="separator"><!-- #nothingtoseehere --></div>
+
+				<button class="big-button" ng-click="signin()">Sign In</button>
+
+				<p id="login-CTA">Effettua il login usando il tuo account di ateneo</p>
+			</div>
+
+	</ion-content>
+</ion-view>

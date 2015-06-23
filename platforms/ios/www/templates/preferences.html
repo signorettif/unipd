@@ -1,0 +1,19 @@
+<ion-view ng-controller="PrefCtrl">
+	<ion-header-bar class="bar-light" ng-init="check()">
+	    <h1 class="title">Quali sono i tuoi interessi?</h1>
+	    <div class="buttons">
+	        <button class="button-icon icon arrow-next" ng-click="savePreferences()"></button>
+	    </div>
+    </ion-header-bar>
+
+	<ion-content class="preferences-content" has-header="true">
+
+			<div class="padding prefChooser" ng-controller="PrefCtrl">
+				<div class="card" ng-repeat="card in cards" ng-class="{selected: card.isSel}" ng-click="select({{card.id}})">
+					<div class="img" style="background-image: url('{{card.img}}');"></div>
+					<p>{{ card.title }}</p>
+				</div>
+			</div>
+
+	</ion-content>
+</ion-view>
